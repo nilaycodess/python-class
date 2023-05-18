@@ -74,20 +74,20 @@ def main():
         saticinin_toplam_satis_tutari = satis_tutarlari[satici_adi]
         print(f"{satici_adi} satıcısının toplam satış tutarı: {saticinin_toplam_satis_tutari}")
 
-        # birden fazla satış yapan satıcılar listesi
+        # ikiden fazla satış yapan satıcılar listesi
         if saticinin_toplam_satis_tutari > 0:
             satis_sayisi = len([magaza for magaza in magaza_listesi if magaza.get_satici_adi() == satici_adi])
-            if satis_sayisi > 1:
+            if satis_sayisi > 2:
                 print(f"{satici_adi} satıcısı {satis_sayisi} satış yaptı.\n")
 
-        # birden çok satış yapan satıcıların listesi
-    birden_cok_satis_yapanlar = [satici_adi for satici_adi in satici_adlari_listesi
+        # ikiden çok satış yapan satıcıların listesi
+    ikiden_cok_satis_yapanlar = [satici_adi for satici_adi in satici_adlari_listesi
                                  if len([magaza for magaza in magaza_listesi if
-                                         magaza.get_satici_adi() == satici_adi]) > 1]
-  # birden çok satış yapan satıcıları yazdırma:
-    if len(birden_cok_satis_yapanlar) > 0:
+                                         magaza.get_satici_adi() == satici_adi]) > 2]
+  # ikiden çok satış yapan satıcıları yazdırma:
+    if len(ikiden_cok_satis_yapanlar) > 0:
         print("Birden çok satış yapan satıcıların adları:")
-        for satici_adi in birden_cok_satis_yapanlar:
+        for satici_adi in ikiden_cok_satis_yapanlar:
             print(satici_adi)
 if __name__ == "__main__":
     main()
