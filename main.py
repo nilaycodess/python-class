@@ -44,7 +44,7 @@ def magaza_satis_tutari_hesapla(magaza_listesi, satici_adi):
 def main():
     # mağaza ve satıcı adı listeleri oluştur:
     magaza_listesi = []
-    satici_adlari = []
+    satici_adlari_listesi = []
     satis_tutarlari = {}
 
     while True:
@@ -55,10 +55,10 @@ def main():
         satis_tutari = float(input("Satış tutarını giriniz: "))
 
         # girilen satıcı adının daha önce girilip girilmediğini kontrol edip listeye ekliyoruz:
-        if satici_adi in satici_adlari:
+        if satici_adi in satici_adlari_listesi:
             satis_tutarlari[satici_adi] += satis_tutari
         else:
-            satici_adlari.append(satici_adi)
+            satici_adlari_listesi.append(satici_adi)
             satis_tutarlari[satici_adi] = satis_tutari
 
         magaza_listesi.append(Magaza(magaza_adi, satici_adi, satici_cinsi, satis_tutari))
@@ -70,7 +70,7 @@ def main():
 
     print("\nMağaza satış bilgileri: ")
     # satıcıların toplam tutar değerlerini yazdırıyoruz:
-    for satici_adi in satici_adlari:
+    for satici_adi in satici_adlari_listesi:
         saticinin_toplam_satis_tutari = satis_tutarlari[satici_adi]
         print(f"{satici_adi} satıcısının toplam satış tutarı: {saticinin_toplam_satis_tutari}")
 
@@ -81,7 +81,7 @@ def main():
                 print(f"{satici_adi} satıcısı {satis_sayisi} satış yaptı.\n")
 
         # birden çok satış yapan satıcıların listesi
-    birden_cok_satis_yapanlar = [satici_adi for satici_adi in satici_adlari
+    birden_cok_satis_yapanlar = [satici_adi for satici_adi in satici_adlari_listesi
                                  if len([magaza for magaza in magaza_listesi if
                                          magaza.get_satici_adi() == satici_adi]) > 1]
   # birden çok satış yapan satıcıları yazdırma:
@@ -91,4 +91,3 @@ def main():
             print(satici_adi)
 if __name__ == "__main__":
     main()
-    
