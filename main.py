@@ -36,7 +36,7 @@ class Magaza:
                f"Satıcı cinsi: {self.__satici_cinsi}, Satış tutarı: {self.__satis_tutari}"
 
 # toplam satış tutar değerini hesaplamak için fonks:
-def magaza_satis_tutari(magaza_listesi, satici_adi):
+def magaza_satis_tutari_hesapla(magaza_listesi, satici_adi):
     saticinin_satislari = [magaza for magaza in magaza_listesi if magaza.get_satici_adi() == satici_adi]
     toplam_satis_tutari = sum([magaza.get_satis_tutari() for magaza in saticinin_satislari]) # sum metodu ile toplama
     return toplam_satis_tutari
