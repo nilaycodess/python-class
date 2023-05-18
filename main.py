@@ -86,8 +86,9 @@ def main():
                                          magaza.get_satici_adi() == satici_adi]) > 1]
   # birden çok satış yapan satıcıları yazdırma:
     if len(birden_cok_satis_yapanlar) > 0:
-        print("Birden çok satış yapan satıcılar:")
+        print("Birden çok satış yapan satıcıların adları:")
         for satici_adi in birden_cok_satis_yapanlar:
             print(satici_adi)
 if __name__ == "__main__":
     main()
+    
